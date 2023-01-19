@@ -11,6 +11,10 @@ code {
         monospace;
 }
 
+h3 {
+    cursor: default;
+}
+
 li {
     list-style-type: none;
 }
@@ -40,13 +44,39 @@ li {
 
     &__todos {
         display: flex;
+        width: 80%;
     }
 
-    &__todo-list {
+    &__todos {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         box-sizing: border-box;
+        align-items: center;
+
+        width: 100%;
+
+        &_list {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            .todo-item {
+                display: flex;
+                justify-content: baseline;
+                align-items: center;
+            }
+        }
+    }
+
+    &__toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+
+        margin-top: 1rem;
     }
 }
 

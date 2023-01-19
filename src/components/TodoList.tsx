@@ -20,25 +20,29 @@ export const TodoList: React.FC<ITodoListProps> = ({ todos, onToggle, onRemove }
     }
 
     return <>
-        <div className="container__todo-list">
+        <div className="container__todos">
             <h3>Список дел: </h3>
-            <div>
-                {todos.map(todo => {
-                    const classes = ['todo']
-                    if (todo.completed) { classes.push('completed') }
-                    return (
-                        <li className={classes.join(' ')} key={todo.id}>
-                            <label>
-                                <Checkbox
-                                    defaultChecked={todo.completed}
-                                    onClick={() => onToggle(todo.id)}
-                                />
-                                <span>{todo.title}</span>
-                                <DeleteIcon className="delete-icon" onClick={event => removeHandler(event, todo.id)} />
-                            </label>
-                        </li>
-                    )
-                })}
+            <div className="container__todos_list">
+                <div>
+                    {todos.map(todo => {
+                        const classes = ['todo']
+                        if (todo.completed) { classes.push('completed') }
+                        return (
+                            <li className={classes.join(' ')} key={todo.id}>
+                                <label>
+                                    <div className="todo-item">
+                                        <Checkbox
+                                            defaultChecked={todo.completed}
+                                            onClick={() => onToggle(todo.id)}
+                                        />
+                                        <span>{todo.title}</span>
+                                        <DeleteIcon className="delete-icon" onClick={event => removeHandler(event, todo.id)} />
+                                    </div>
+                                </label>
+                            </li>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     </>
