@@ -36,7 +36,7 @@ const todoSlice = createSlice({
                 (todo) => todo.id !== action.payload
             );
         },
-        removeAll(state, action) {
+        removeAll(state) {
             state.list = [];
         },
     },

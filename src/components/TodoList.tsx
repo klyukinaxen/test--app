@@ -36,7 +36,7 @@ export const TodoList: React.FC<ITodoListProps> = ({ todos }) => {
                                 <label>
                                     <div className="todo-item">
                                         <Checkbox
-                                            defaultChecked={todo.completed}
+                                            checked={todo.completed}
                                             onClick={() => dispatch(toggleComplete(todo.id))}
                                         />
                                         <span>{todo.title}</span>

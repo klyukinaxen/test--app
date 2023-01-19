@@ -24,7 +24,7 @@ export const TodoForm: React.FC = () => {
                     inputRef={ref}
                     required
                 />
-                <Button variant="outlined" color="error" onClick={() => dispatch(removeAll)}> Очистить </Button>
+                <Button variant="outlined" color="error" onClick={() => dispatch(removeAll())}> Очистить </Button>
             </form>
         </>
     )

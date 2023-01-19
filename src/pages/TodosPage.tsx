@@ -4,7 +4,7 @@ import { TodoList } from "../components/TodoList";
 import { TodoForm } from "../components/TodoForm";
 // import { ITodo } from "../interfaces";
 import { useAppSelector, useAppDispatch } from "../hook";
-import { ToggleButtonGroup, ToggleButton } from '@mui/material';
+import { ToggleButtonGroup, ToggleButton, Button } from '@mui/material';
 import { setTodos } from '../store/todoSlice';
 
 type ShowType = 'all' | 'new' | 'solved'
@@ -42,8 +42,7 @@ export const TodosPage: React.FC = () => {
 
     return (
         <>
-            <button onClick={() => navigate('/')}>log out</button>
-
+            <Button variant='outlined' className='log-out' color="info" onClick={() => navigate('/')}>log out</Button>
             <div className="container__add-task">
                 <TodoForm />
             </div>
@@ -58,11 +57,9 @@ export const TodosPage: React.FC = () => {
                     <ToggleButton value="all">Все задачи</ToggleButton>
                     <ToggleButton value="new">Не выполнено</ToggleButton>
                 </ToggleButtonGroup>
-
                 <div className="container__todos">
                     <TodoList todos={resultTodos} />
                 </div>
-
             </div>
         </>
     )
