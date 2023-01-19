@@ -25,6 +25,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onAdd, onRemove }) => {
                     className="input"
                     placeholder="Введите дело"
                     inputRef={ref}
+                    required
                 />
                 <Button variant="outlined" color="error" onClick={onRemove}> Очистить </Button>
             </form>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 import { TodoList } from "../components/TodoList";
 import { TodoForm } from "../components/TodoForm";
 import { ITodo } from "../interfaces";
@@ -8,6 +8,9 @@ import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 type ShowType = 'all' | 'new' | 'solved'
 
 export const TodosPage: React.FC = () => {
+
+    const navigate = useNavigate();
+
     const [todos, setTodos] = useState<ITodo[]>([]);
     const [showType, setShowType] = useState<ShowType>('all');
 
@@ -68,6 +71,8 @@ export const TodosPage: React.FC = () => {
 
     return (
         <>
+            <button onClick={() => navigate('/')}>log out</button>
+
             <div className="container__add-task">
                 <TodoForm onAdd={addHandler} onRemove={removeAll} />
             </div>
@@ -78,14 +83,15 @@ export const TodosPage: React.FC = () => {
                     exclusive
                     onChange={toggleChange}
                 >
-                    <ToggleButton value="solved">Solved</ToggleButton>
-                    <ToggleButton value="new">New</ToggleButton>
-                    <ToggleButton value="all">All</ToggleButton>
+                    <ToggleButton value="solved">Выполнено</ToggleButton>
+                    <ToggleButton value="all">Все задачи</ToggleButton>
+                    <ToggleButton value="new">Не выполнено</ToggleButton>
                 </ToggleButtonGroup>
 
                 <div className="container__todos">
                     <TodoList todos={resultTodos} onRemove={removeHandler} onToggle={toggleHandler} />
                 </div>
+
             </div>
         </>
     )
