@@ -1,18 +1,15 @@
 import React, { useRef } from "react";
 import { Input } from '@mui/material';
 import { Button } from '@mui/material'
+import { useAppDispatch } from "../hook";
+import { addTodo, removeAll } from '../store/todoSlice'
 
-interface TodoFormProps {
-    onAdd: (title: string) => void,
-    onRemove: () => void
-}
-
-export const TodoForm: React.FC<TodoFormProps> = ({ onAdd, onRemove }) => {
-
+export const TodoForm: React.FC = () => {
+    const dispatch = useAppDispatch();
     const ref = useRef<HTMLInputElement>(null)
 
     const onSubmit = () => {
-        onAdd(ref.current!.value);
+        dispatch(addTodo(ref.current!.value));
         ref.current!.value = ""
     }
 
@@ -27,7 +24,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onAdd, onRemove }) => {
                     inputRef={ref}
                     required
                 />
-                <Button variant="outlined" color="error" onClick={onRemove}> Очистить </Button>
+                <Button variant="outlined" color="error" onClick={() => dispatch(removeAll)}> Очистить </Button>
             </form>
         </>
     )
