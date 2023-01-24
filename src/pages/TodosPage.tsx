@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TodoList } from "../components/TodoList";
 import { TodoForm } from "../components/TodoForm";
-// import { ITodo } from "../interfaces";
 import { useAppSelector, useAppDispatch } from "../hook";
 import { ToggleButtonGroup, ToggleButton, Button } from '@mui/material';
 import { setTodos } from '../store/todoSlice';
@@ -43,21 +42,21 @@ export const TodosPage: React.FC = () => {
     return (
         <>
             <Button variant='outlined' className='log-out' color="info" onClick={() => navigate('/')}>log out</Button>
-            <div className="container__add-task">
-                <TodoForm />
-            </div>
-            <div className="container__toggle">
-                <ToggleButtonGroup
-                    color="primary"
-                    value={showType}
-                    exclusive
-                    onChange={toggleChange}
-                >
-                    <ToggleButton value="solved">Выполнено</ToggleButton>
-                    <ToggleButton value="all">Все задачи</ToggleButton>
-                    <ToggleButton value="new">Не выполнено</ToggleButton>
-                </ToggleButtonGroup>
-                <div className="container__todos">
+            <div className="container__todos-page">
+                <div className="container__add-task">
+                    <TodoForm />
+                </div>
+                <div className="container__toggle">
+                    <ToggleButtonGroup
+                        color="primary"
+                        value={showType}
+                        exclusive
+                        onChange={toggleChange}
+                    >
+                        <ToggleButton value="solved">Выполнено</ToggleButton>
+                        <ToggleButton value="all">Все задачи</ToggleButton>
+                        <ToggleButton value="new">Не выполнено</ToggleButton>
+                    </ToggleButtonGroup>
                     <TodoList todos={resultTodos} />
                 </div>
             </div>

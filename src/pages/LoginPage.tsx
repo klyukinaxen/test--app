@@ -1,12 +1,12 @@
 import React from "react";
-import { Box, TextField, Button } from '@mui/material';
+import { Box, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom'
 
 export const LoginPage: React.FC = () => {
     const navigate = useNavigate();
 
     return (<>
-        <div className="container__logIn">
+        <div className="container__log-in">
             <h3>Авторизация</h3>
             <Box component="form" onSubmit={() => navigate('/todo')} sx={{ mt: 1 }}>
                 <TextField
@@ -29,14 +29,9 @@ export const LoginPage: React.FC = () => {
                     id="password"
                     autoComplete="current-password"
                 />
-                <Button
+                <button className="login__submit"
                     type="submit"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                >
-                    Sign In
-                </Button>
+                >Sign In</button>
             </Box>
         </div>
 
